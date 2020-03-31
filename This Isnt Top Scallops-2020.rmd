@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, cache = TRUE, dev="png")
 
 setwd(here::here())
 options(scipen=999)
@@ -22,6 +22,7 @@ library(emo)
 library(png)
 library(rlang)
 library(tidyverse)
+library(magick)
 ```
 
 ```{css, echo = FALSE}
@@ -129,6 +130,13 @@ find_weekly_episode_score <- function(){
   ungroup()
   
 }
+
+
+
+add_image <- function(filepath, size){
+  image_read(filepath) %>% 
+    image_scale(str_extract(size, "[0-9]+"))
+}
 ```
 
 Welcome to This Isn't Top Scallops, a Top Chef fantasy league! This page will be home to the league's rules, draft summary, episode-by-episode recaps, _advanced_ metrics, and assorted memes.
@@ -187,7 +195,7 @@ It's great to be back! This was a very exciting first episode that saw the all-s
 Special shout-out to **Bryan Voltaggio's** elimination challenge dish, which takes the "I guess you need to taste it IRL because it really looks terrible and that's the fundamental flaw with cooking shows on TV" prize of the week.
 
 ```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/QDqQI6L.png")
+add_image("https://i.imgur.com/QDqQI6L.png", dishsize)
 ```
 
 Here is this week's recap of winners, losers, and our standings so far.
@@ -234,12 +242,12 @@ The red team won with two dishes: a delicious char-grilled artichoke with tahini
 
 **Winning Dishes**
 
-```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/obWcFmP.png")
+```{r, out.width = dishsize, dpi = 36}
+add_image("https://i.imgur.com/obWcFmP.png", dishsize)
 ```
 
-```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/Kvgec6j.png")
+```{r, out.width = dishsize, dpi = 36}
+add_image("https://i.imgur.com/Kvgec6j.png", dishsize)
 ```
 
 ### Elimination Challenge
@@ -264,22 +272,22 @@ include_graphics("https://i.imgur.com/Kvgec6j.png")
 
 **Winning Dishes**
 
-```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/BacCbVa.png")
+```{r, out.width = dishsize, dpi = 36}
+add_image("https://i.imgur.com/BacCbVa.png", dishsize)
 ```
 
-```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/m35QsR9.png")
+```{r, out.width = dishsize, dpi = 36}
+add_image("https://i.imgur.com/m35QsR9.png", dishsize)
 ```
 
-```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/BatQziR.png")
+```{r, out.width = dishsize, dpi = 36}
+add_image("https://i.imgur.com/BatQziR.png", dishsize)
 ```
 
 **Losing Dish**
 
-```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/6WNSQsK.png")
+```{r, out.width = dishsize, dpi = 36}
+add_image("https://i.imgur.com/6WNSQsK.png", dishsize)
 ```
 
 ### Episode Score
@@ -358,9 +366,23 @@ preds_wide %>%
 
 # Week 2 Recap
 
-[RECAP]
+This week's recap is a guest post from my roommate, Janet! When I asked Janet to join the league last year, she rejected the invite by saying "lol no", and then almost immediately got such intense FOMO that she asked me to bcc her on all the recap emails. Look at her now, writing paragraphs of this stuff.
 
-In Last Chance Kitchen, 
+***
+
+This week's episode was all about honoring the late, great Jonathan Gold, the beloved food critic who very effectively communicated the fact that the best food in LA is found in strip malls (if you are in search of more streamable content, might I suggest the fantastic Jonathan Gold/Los Angeles documentary, [City of Gold?](https://www.imdb.com/title/tt2614776/ "City of Gold IMDB")) The cheftestants skipped the Quickfire challenge in lieu of eating through said strip malls and being ferried in BMWs (deeply ironic as Jonathan Gold was known for his 1998 Dodge pick-up).
+
+The cuisines featured in this food-porn montage covered everything from Filipino to Szechuan to Indian to Mexican to Thai, a selection that varied almost as much as the cheftestants' levels of judgment and risk taking. Nini managed to pull off an Asian/Jewish/Mexican "masa ball soup" that landed her in the top three, while Steph Cmar decided that Top Chef All Stars would be a totally great time to try your hand at making Indian food for Padma. Needless to say, the Indian nacho was a no-go. Maybe she should have taken a page out of Nini's book and called it a "naancho"? Whatever, at least Steph went out of her comfort zone. The guests at the Union Station food fest were also privy to two crudos (yawn) and two tartares. One of the tartares came from Melissa King, who gets a special shoutout from me this week because it turns out that homegirl is from Alhambra, which is right next to my own hometown on LA's East side. Her little speech about learning to be proud of being Chinese was a nice interlude in a current moment where sentiments towards Asians are...not great. Anyway, Melissa's tartare seemed perfectly fine, even if some misplaced peppers gave Tom's mouth a bit of a burn. Speaking of incredible burns...the other tartare came from Brian Malarkey and was so extra that guest judge Ruth Reichl called it "the kind of showoff dish that a lot of people who hate restaurants hate about restaurants." Ouch! I don't know anyone that hates restaurants but I guess they're having their moment now :(
+
+However, it turns out that Ruth Reichl reserved her most cutting remarks for Angelo, whose poor tuna apparently died in vain. In addition to producing an alternative pronunciation of "turmeric" so confidently said that I questioned the lines between TV and reality and reality TV, Angelo made a really sweet soup that the judges (and Jen Caroll, tbh) hated. 
+
+Kevin
+
+**About the Author:**
+
+`r include_graphics("Pics/Highlights/Wk2/Janet Face.jpeg", dpi = headshotsize*1.5)`
+
+***
 
 ### Highlights From Around the League
 
@@ -369,70 +391,69 @@ Send me pics and highlights (cooking and personal) to include in next week's edi
 **Chris and Katya** got a shout-out from Padma on Twitter. But where are the pics of the stew, guys? What the fuck!
 
 ```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Chris-Katya Padma Shout-Out.jpg")
+add_image("Pics/Highlights/Wk2/Chris-Katya Padma Shout-Out.jpg", highlightsize)
 ```
 
 Not to be a one-upper, but **Janet and Eugene** got a pity Instagram like from Tom last Halloween after they creepily dressed up as him and erstwhile Last Chance Kitchen sponsor Hidden Valley Ranch&reg;. Affirm us, Tom! Pour one out for Hidden Valley Ranch, who's been usurped by BMW this season.
 
 ```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Eugene-Janet Tom Instagram.jpg")
-include_graphics("Pics/Highlights/Wk2/Eugene-Janet Tom Instagram2.jpg")
+add_image("Pics/Highlights/Wk2/Eugene-Janet Tom Instagram.jpg", highlightsize)
+add_image("Pics/Highlights/Wk2/Eugene-Janet Tom Instagram2.jpg", highlightsize)
 ```
 
-**Claire** made a delicious banana bread last week. And big ups to the mysterious goop in the red tupperware, the rhythm instrument to the bread's lead guitar. We see you, goop!
+**Claire** made a delicious banana bread last week. And big ups to the mysterious goop in the red tupperware, the rhythm instrument to the banana bread's lead guitar. We see you, goop!
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Claire banana bread.jpeg")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Claire banana bread.jpeg", highlightsize)
 ```
 
 For his homework, **Eugene** had to identify "ships" in some satellite images. That sure doesn't look like a ship!
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/ships (allegedly).png")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/ships (allegedly).png", highlightsize)
 ```
 
 **Sarah** made some awesome dumplings, but more importantly, check out the coaster. I fucking love projections.
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Sarah dumps.jpeg")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Sarah dumps.jpeg", highlightsize)
 ```
 
 **Stephen's** been doing his part to singlehandedly keep the Genesee Brewing Company in business. Who needs a bail-out bill when you've got friends like these?
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Stephen Cream Ale.png") 
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Stephen Cream Ale.png", highlightsize)
 ```
 
 **Gracie** made a v tasty Burmese chicken noodle dish called _\*reads notes\*_ pasta carbonara. White sauce strikes again!
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Gracie Burmese Chicken.png")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Gracie Burmese Chicken.png", highlightsize)
 ```
 
 **Jackie** broke quarantine to go join the fools on the beach in Florida. Shame, Jackie, shame!
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Jackie on Beach.jpeg")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Jackie on Beach.jpeg", highlightsize)
 ```
 
 **Emily** made some tasty 'dillas. She tells me the thumb was the best part!
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Emily Quesadillas.jpeg")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Emily Quesadillas.jpeg", highlightsize)
 ```
 
 Lastly, **Natasha** baked two foccacia breads: one with cherry tomatoes & garlic and one with baby freshwater eels! Even stranger than the eels, though, is her pronunciation of foccacia. "foh-coh-shyuh"? come on!
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Natasha Foccacia.jpeg")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Natasha Foccacia.jpeg", highlightsize)
 ```
 
-Like all Asian men on Twitter, **Eugene** is trying to grow facial hair for the first time. Here's a ~15 day update. In the words of his good friend Milo:
+Like all Asian men on Twitter, **Eugene** is trying to grow facial hair for the first time. Here's a ~15 day update. In the words of his good friend Milo, who's on a similar endeavor:
 
-```{r, out.width = highlightsize, fig.align="center"}
-include_graphics("Pics/Highlights/Wk2/Milo Tweet.PNG")
-
-include_graphics("Pics/Highlights/Wk2/Eugene face.jpg")
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk2/Milo Tweet.PNG", highlightsize)
+add_image("Pics/Highlights/Wk2/Eugene face.jpg", highlightsize)
 ```
 
 ```{r, Week 2 Summary}
@@ -533,21 +554,21 @@ There was no Quickfire this week! What a concept!
 **Winning Dishes**
 
 ```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/xhdo9r1.png")
+add_image("https://i.imgur.com/xhdo9r1.png", dishsize)
 ```
 
 ```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/AsTOpbQ.png")
+add_image("https://i.imgur.com/AsTOpbQ.png", dishsize)
 ```
 
 ```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/wcqEGUH.png")
+add_image("https://i.imgur.com/wcqEGUH.png", dishsize)
 ```
 
 **Losing Dish**
 
 ```{r, out.width = dishsize}
-include_graphics("https://i.imgur.com/9O9vxou.png")
+add_image("https://i.imgur.com/9O9vxou.png", dishsize)
 ```
 
 ### Episode Score
@@ -619,47 +640,6 @@ preds_wide %>%
   scroll_box(width = "100%",
              height = "700px")
 
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```{r, eval = FALSE}
-### USE THIS FOR WEEK 2 EPISODE SCORE
-
-week <- 2
-week_point_title <- paste("Week", week, "Points") 
-week_winners <- list(QFwinner = QFwinner, 
-                     QFHM = QFHM, 
-                     EMwinner = EMwinner, 
-                     EMHM = EMHM)
-
-weekly_episode_score <- left_join(weekly_episode_score %>% 
-                                    dplyr::select(-"Total Points"),
-                                  find_weekly_episode_score(),
-                                  by = c("Team", "Members")) %>% 
-  mutate("Total Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
-  arrange(desc(`Total Points`))
 ```
 
 # References
