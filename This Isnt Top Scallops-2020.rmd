@@ -339,6 +339,7 @@ ggplot(Final_points_lost,
        title = paste("Total Final Ranking Points Lost as of Week", week),
        subtitle = "A lower number is better!")
 ```
+
 ### Team Breakdowns
 
 Lastly, here's a look at how everyone's team is doing after Week 1.
@@ -366,35 +367,39 @@ preds_wide %>%
 
 # Week 2 Recap
 
-This week's recap is a guest post from my roommate, Janet! When I asked Janet to join the league last year, she rejected the invite by saying "lol no", and then almost immediately got such intense FOMO that she asked me to bcc her on all the recap emails. Look at her now, writing paragraphs of this stuff.
+This week's recap is a guest post from my roommate, **Janet!**, who graciously agreed to write this summary after I whined "No! I don't want to!" She also happens to be from LA and rolled her eyes when they called Hollywood a "neighborhood." When I asked Janet to join the league last year, she rejected the invite by saying "lol no," and then almost immediately got such intense FOMO that she asked me to bcc her on all the recap emails. And now she's here, writing paragraphs of this stuff. 
 
 ***
 
-This week's episode was all about honoring the late, great Jonathan Gold, the beloved food critic who very effectively communicated the fact that the best food in LA is found in strip malls (if you are in search of more streamable content, might I suggest the fantastic Jonathan Gold/Los Angeles documentary, [City of Gold?](https://www.imdb.com/title/tt2614776/ "City of Gold IMDB")) The cheftestants skipped the Quickfire challenge in lieu of eating through said strip malls and being ferried in BMWs (deeply ironic as Jonathan Gold was known for his 1998 Dodge pick-up).
+This week's episode was all about honoring the late Jonathan Gold, a beloved food critic who very effectively communicated the fact that the best food in LA is found in strip malls (if you are in search of more streamable content, might I suggest the fantastic Jonathan Gold/Los Angeles documentary, [City of Gold](https://www.imdb.com/title/tt2614776/ "City of Gold IMDB")?) The cheftestants skipped the Quickfire challenge in favor of eating through said strip malls and being ferried around LA in BMWs (deeply ironic as Jonathan Gold was known for his 1998 Dodge pick-up).
 
-The cuisines featured in this food-porn montage covered everything from Filipino to Szechuan to Indian to Mexican to Thai, a selection that varied almost as much as the cheftestants' levels of judgment and risk taking. Nini managed to pull off an Asian/Jewish/Mexican "masa ball soup" that landed her in the top three, while Steph Cmar decided that Top Chef All Stars would be a totally great time to try your hand at making Indian food for Padma. Needless to say, the Indian nacho was a no-go. Maybe she should have taken a page out of Nini's book and called it a "naancho"? Whatever, at least Steph went out of her comfort zone. The guests at the Union Station food fest were also privy to two crudos (yawn) and two tartares. One of the tartares came from Melissa King, who gets a special shoutout from me this week because it turns out that homegirl is from Alhambra, which is right next to my own hometown on LA's East side. Her little speech about learning to be proud of being Chinese was a nice interlude in a current moment where sentiments towards Asians are...not great. Anyway, Melissa's tartare seemed perfectly fine, even if some misplaced peppers gave Tom's mouth a bit of a burn. Speaking of incredible burns...the other tartare came from Brian Malarkey and was so extra that guest judge Ruth Reichl called it "the kind of showoff dish that a lot of people who hate restaurants hate about restaurants." Ouch! I don't know anyone that hates restaurants but I guess they're having their moment now :(
+The cuisines featured in this food-porn montage covered everything from Filipino to Szechuan to Indian to Mexican to Thai, a selection that varied almost as much as the cheftestants' levels of judgment and risk taking. **Nini** managed to pull off an Asian/Jewish/Mexican "masa ball soup" that landed her in the top three, while **Steph Cmar** decided that Top Chef All Stars would be a totally great time to try her hand at making Indian food for Padma. Needless to say, the Indian nacho was a no-go. Maybe she should have taken a page out of Nini's book and called it a "naancho"?
 
-However, it turns out that Ruth Reichl reserved her most cutting remarks for Angelo, whose poor tuna apparently died in vain. In addition to producing an alternative pronunciation of "turmeric" so confidently said that I questioned the lines between TV and reality and reality TV, Angelo made a really sweet soup that the judges (and Jen Caroll, tbh) hated. 
+At least Steph went out of her comfort zone. The guests at the Union Station were also privy to two crudos and two tartares (yawn). One of the tartares came from **Melissa King,** who gets a special shoutout from me this week because it turns out that homegirl is from Alhambra, which is right next to my own hometown. After that backstory about having to learn to be proud of being Chinese, I legitimately felt like a race traitor for not putting her first in my rankings. Her tartare also seemed pretty good, even if some misplaced peppers gave Tom's mouth a bit of a burn. Speaking of incredible burns, the other tartare came from **Brian Malarkey** and was so extra that guest judge Ruth Reichl called it "the kind of showoff dish that a lot of people who hate restaurants hate about restaurants." Oof.
 
-Kevin
+But it turns out that Ruth Reichl reserved her most cutting remarks for **Angelo,** whose poor tuna apparently "died in vain." In addition to producing an alternative pronunciation of "turmeric" so confidently said that I questioned the lines between TV and reality and reality TV, Angelo made a really sweet soup that the judges (and **Jen Caroll,** tbh) hated. Angelo packed his knives to face off against **Joe Sasto** in the season's first Last Chance Kitchen episode, and poor sweet Angelo lost out there as well. Pour one out for Angelo. Pour one out for Jonathan Gold. And while we're at it, pour one out for restaurants and especially restaurant workers. 
 
-**About the Author:**
+Finishing off the toasts on a more uplifting note: this week's Elimination Challenge winner goes to **Kevin Gillespie** for making a delicious looking little pork ball (guys I know so much about food) topped with "Granny's" apple butter, which Ruth Reichl implored him to bottle and sell. A feel-good win, especially after that heart-tugging backstory about his recent bout with cancer. When Kevin said "I'm here to prove that I'm still alive," I knew he was either going home or winning the challenge. I, like everyone else who ranked him in their top 8, am glad it was the latter. 
+
+\- Janet
+
+***
+
+**About the Author:** Janet Xu is a Ph.D candidate in the Department of Culinary Anthropology at Princeton University's Gusteau Institute. Her research focuses on the intercultural perceptions of the differences between soups and sauces. She recently published an Op-Ed in the New York Times arguing that cereal is, in fact, soup. In her free time, Janet measures the amount of air included in different bags of chips.
 
 `r include_graphics("Pics/Highlights/Wk2/Janet Face.jpeg", dpi = headshotsize*1.5)`
 
-***
-
 ### Highlights From Around the League
 
-Send me pics and highlights (cooking and personal) to include in next week's edition. In other words, send noods!
+**_Send me pics and highlights (cooking and personal) to include in next week's edition. In other words, send noods!_**
 
-**Chris and Katya** got a shout-out from Padma on Twitter. But where are the pics of the stew, guys? What the fuck!
+**Chris and Katya** got a shout-out from Padma on Twitter, which is cool. But where are the pics of the actual stew, guys? What the fuck!
 
 ```{r, out.width = highlightsize, fig.align="center"}
 add_image("Pics/Highlights/Wk2/Chris-Katya Padma Shout-Out.jpg", highlightsize)
 ```
 
-Not to be a one-upper, but **Janet and Eugene** got a pity Instagram like from Tom last Halloween after they creepily dressed up as him and erstwhile Last Chance Kitchen sponsor Hidden Valley Ranch&reg;. Affirm us, Tom! Pour one out for Hidden Valley Ranch, who's been usurped by BMW this season.
+Not to be a one-upper, but **Janet and Eugene** got a pity Instagram like from Tom last Halloween after they creepily dressed up as him and erstwhile _Last Chance Kitchen_ sponsor Hidden Valley Ranch&reg;. Affirm us, Tom! Pour one out for Hidden Valley Ranch, who's been usurped by BMW this season.
 
 ```{r, out.width = highlightsize, fig.align="center"}
 add_image("Pics/Highlights/Wk2/Eugene-Janet Tom Instagram.jpg", highlightsize)
@@ -686,7 +691,7 @@ Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("
 
 ### Rules
 
-**Scoring:** The goal of the season is to have the highest **Final Score**.  2nd place gets **\$15**, and the winner gets **\$105** (24 total players!).  Your score will have two parts, each weighted equally:
+**Scoring:** The goal of the season is to have the highest **Final Score**. 2nd place gets **\$15**, and the winner gets **\$105** (24 total players!).  Your score will have two parts, each weighted equally:
 
 * **Ranking Score:** This is how closely your predictions match up with the final finishes. If you guess every chef's finish from 1-to-16 correctly, you would have a perfect score.
     - Note that chefs eliminated early in the season may get back onto the show via Last Chance Kitchen! In that case, we will use the chef's final position after the season has ended. 
