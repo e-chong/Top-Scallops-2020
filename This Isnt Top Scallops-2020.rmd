@@ -806,8 +806,6 @@ current_rankings %>%
 
 ### Quickfire
 
-The red team won with two dishes: a delicious char-grilled artichoke with tahini and a chewy-but-tasty-looking artichoke tortellono. 
-
 **Winner:** Kevin again!
 
 [`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
