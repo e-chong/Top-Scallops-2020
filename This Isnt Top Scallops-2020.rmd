@@ -647,6 +647,309 @@ preds_wide %>%
 
 ```
 
+# Week 3 Recap
+
+The chefs kicked off this week with a _fried rice_ challenge guest starring **Ali Wong** and **Randall Park,** who were presumably there to promote their late 2019 Netflix film _Always Be My Maybe_. After being disappointed by almost every Netflix Original I've ever seen, I some time ago instituted a personal rule to never watch a Netflix Original unless it's been recommended to me by at least 10 different people (you may find this stupid, but consider that you spent an evening watching _Birdbox_ and I did not). I broke that rule last fall to watch _Always Be My Maybe_, because Asian-American solidarity, and it was boring, cliche, and saccharine, proving me right once again. It was, however, _our_ boring, cliche, and saccharine movie, and that really meant a lot to _\*gestures to myself and other Asians\*_. The truest sign of cultural representation, in my mind, is not to have _Parasite_ winning a bunch of praise and Oscars, but to have a steady supply of mediocre out there, and between this and _Crazy Rich Asians_, we're getting there, baby!
+
+Speaking of Asian-American solidarity, not a single Asian chef placed on top in the fried rice Quickfire! Shame level readings ([if you're into that kind of thing](https://en.wikipedia.org/wiki/The_Chrysanthemum_and_the_Sword)) are off the charts right now. Notable dishes include **Eric's** only-sounds-good-because-we-know-it-worked-out PB&J fried rice and **Nini's** ehhh-not-sure-about-that-one watermelon fried rice. Big ups to **Karen** as well for nailing the nasi goreng with Hot Cheetos. She may not have won the Quickfire, but she deserves special praise for performing well despite the, um, weird (read: stupid) [week for her name](https://twitter.com/HadleyFreeman/status/1246812777341169664?s=20 "Karen controversy").
+
+For the Elimination Challenge, the chefs Zoomed off in their BMW N95s to GoToAMeeting at the Getty Museum. They had split up into Microsoft-Teams-of-3 so they could feed a veritable Houseparty of notable chefs, who would repay their efforts with useful, actionable feedback like "it's just fish and sauce." There, they got some FaceTime with Van Gogh and Rembrandt, from whom they hoped to draw inspiration for their dishes. Notably, they also got to Hangout on the Getty Center Tram (shout-out to all the train boys reading). **Bryan,** rocking his Bluejeans, squeaked and Skyped his way through the whole museum, letting everyone know the bottoms of his sneakers were moist. Cisco WebEx.
+
+**Melissa** won the week with a just beautiful-looking lobster wonton dish, which I really have nothing to say about because it looked amazing (would eat). **Jamie** went home for fucking up chicken breasts _again_, and then he really went home went he went down to **Joe Sasto** (classic full name only guy) in _Last Kance Chicken_. The real story here is less about Jamie's inability to learn how to cook chicken on TV in the three years since he went home for making bad chicken on Season 14 and more about his inability to choose the right part of the chicken to cook. 
+
+**Parts of the chicken, ranked:**
+
+1. [Oyster](https://www.cuisinevault.com/wp-content/uploads/2018/12/Where-are-the-chicken-oysters.jpg "Chicken Oyster")
+2. Egg
+3. Thigh
+4. Wing flat
+5. Drumstick
+6. Liver
+7. Heart
+8. Wing drumette
+9. Feet
+10. Neck
+11. Wing tip
+12. Beak
+
+    [...]
+
+&ensp;&ensp;&ensp;99-or-maybe-higher. Breast
+
+**Stray Observations** (credit to AV Club TV recaps):
+
+* Bryan: big wife guy!
+* Remember grocery shopping with such abandon? I long for the simple pleasures of touching some produce and then putting it back on the shelf.
+* Eric kept pronouncing Neoclassicism as "Neoclassism," which sounds like the title of an out-of-touch _Atlantic_ article to which the entire twitterati responds "but classism isn't dead!"
+* Jamie told Tom that he wanted to impart "depth through flavor" in his Elimination Challenge dish, which didn't mean anything to me at the time but in hindsight seems to have meant "forget to serve the jus."
+* After years of seeing "she only cooks Asian" bullshit on the show (poor **Beverly** was ahead of her time), it's been nice to see _Top Chef_ and its contestants really leaning into Asian cuisine the past few years. This season has been all about identity, specifically my identity.
+
+### Highlights From Around the League
+
+**_Send me pics and highlights (cooking and personal) to include in next week's edition. In other words, send noods!_**
+
+**Ina Garten** is not in the league (though she should be), but she brought us some quarantine cheer by going full _Cougar Town_ on Twitter. I love that for her!
+
+```{r, out.width = highlightsize, fig.align="center"}
+add_image("Pics/Highlights/Wk3/Ina Garten.png", highlightsize)
+add_image("https://i.ytimg.com/vi/_VXdKPEF16Q/hqdefault.jpg", highlightsize)
+```
+
+For his Zoom background, **Eugene** plagiarized a much funnier person from Twitter's idea. He also watched several hours of [Maangchi YouTube videos](https://www.youtube.com/user/Maangchi "Maangchi!") and made her kimchi jjigae recipe.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk3/Distracted Boyfriend Looking at Eugene.png", highlightsize)
+add_image("Pics/Highlights/Wk3/Eugene Kimchi Jjigae.jpg", highlightsize)
+```
+
+**Natasha** knit a sweater, and it's very cool! Considering most of her hand is in the frame, however, she is still very bad at taking selfies.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk3/Natasha Sweater.JPG", highlightsize)
+```
+
+In Public Finance class, **Stephen** asked the professor an important question about our assignment.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk3/Stephen Finance.png", highlightsize)
+```
+
+**Maddy** made a delicious challah bread, which, judging from the photo, is anywhere between 6 inches and 3 feet long.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk3/Maddy Challah.JPG", highlightsize)
+```
+
+**Tiffany** made a single beautifully poached egg, and also some blurry hummus.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk3/Tiffany Egg.png", highlightsize)
+add_image("Pics/Highlights/Wk3/Tiffany Hummus.png", highlightsize)
+```
+
+Like all Asian men on Twitter, **Eugene** is trying to grow facial hair for the first time. Here's a ~22 day update. Looking worse by the day!
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk3/Eugene Face.jpg", highlightsize)
+```
+
+```{r, Week 3 Summary}
+#### update these
+eliminated <- c(eliminated, "Jamie Lynch")
+QFwinner <- c("Kevin Gillespie")
+QFHM <- c("Eric Adjepong", "Karen Akunowicz")
+EMwinner <- c("Melissa King")
+EMHM <- c("Bryan Voltaggio", "Brian Malarkey", "Eric Adjepong")
+week <- 3
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+### Quickfire
+
+The red team won with two dishes: a delicious char-grilled artichoke with tahini and a chewy-but-tasty-looking artichoke tortellono. 
+
+**Winner:** Kevin again!
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(kevin), dpi = headshotsize)`
+
+**Honorable Mentions:** Eric and Karen
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(eric, karen), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/pdjsKAG.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/AI68vlr.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/48lYP59.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Melissa!
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa), dpi = headshotsize)`
+
+**Honorable Mentions:** Bryan, Brian, and Eric were runners-up.
+
+[`r ji("chef")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(bryan, brian, eric), dpi = headshotsize)`
+
+**Eliminated:** Jamie
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(jamie), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/Zm1BEFZ.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/w2jkyr7.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/7wzGfEt.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/203vKip.png", dishsize)
+```
+
+**Losing Dish**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/pMXUGmq.png", dishsize)
+```
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 3 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 3 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 3 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the second episode.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week 2.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
 # References
 
 ### How to Watch!
@@ -681,7 +984,7 @@ Lisa Fernandes  |`r include_graphics(c(lisa), dpi = headshotsize)`     |[`r ji("
 Kevin Gillespie |`r include_graphics(c(kevin), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
 Gregory Gourdet |`r include_graphics(c(gregory), dpi = headshotsize)`  |[`r ji("chef")`]{.emoji2}                |
 Melissa King    |`r include_graphics(c(melissa), dpi = headshotsize)`  |[`r ji("chef")`]{.emoji2}                |
-Jamie Lynch     |`r include_graphics(c(jamie), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
+Jamie Lynch     |`r include_graphics(c(jamie), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Brian Malarkey  |`r include_graphics(c(brian), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
 Nini Nguyen     |`r include_graphics(c(nini), dpi = headshotsize)`     |[`r ji("chef")`]{.emoji2}                |
 Joe Sasto       |`r include_graphics(c(joe), dpi = headshotsize)`      |[`r ji("skull_and_crossbones")`]{.emoji2}|
