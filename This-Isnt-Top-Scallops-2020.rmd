@@ -8,10 +8,10 @@ output:
     toc_float: true
     toc_collapsed: false
     theme: cosmo
-knit: (function(inputFile, encoding) {
-  out_dir <- 'test';
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = "C:/Users/eugen/OneDrive/Documents/UPenn/Jobs/Portfolio/github/e-chong.github.io/html",
-  ) })
+# knit: (function(inputFile, encoding) {
+#   out_dir <- 'test';
+#   rmarkdown::render(inputFile, encoding = encoding, output_dir = "C:/Users/eugen/OneDrive/Documents/UPenn/Jobs/Portfolio/github/e-chong.github.io/html",
+#   ) })
 ---
 
 ```{r setup, include=FALSE}
@@ -1027,7 +1027,7 @@ add_image("Pics/Highlights/Wk4/Tobin face.jpg", highlightsize)
 Like all Asian men on Twitter, **Eugene** is trying to grow facial hair for the first time. Here's a ~29 day update. Looking bad!
 
 ```{r, out.width = highlightsize, fig.align="center", dpi = 36}
-add_image("Pics/Highlights/Wk4/Eugene Face.jpg", highlightsize)
+add_image("Pics/Highlights/Wk4/Eugene face.png", highlightsize)
 ```
 
 ```{r, Week 4 Summary}
@@ -1546,6 +1546,1095 @@ preds_wide %>%
 
 ```
 
+
+# Week 6 Recap
+
+A special guest recap by **Gracie**!
+
+The episode opens with **Nini** and **Brian Malarkey** talking about their love of crystals.  “Malarkey loves crystals” Nini says, apparently not realizing the irony.  **Melissa** gets involved, appearing to tie a piece of jade around her neck, before our contestants head out to their Quickfire Challenge.  
+
+At the Quickfire challenge we learn our guest judge will be none other than Chris Bianco! Never heard of him?  Me neither, but his voice sounds exactly like Don Corleone, which makes me take to him immediately.  He introduces himself which a quick backing joke – you learn things and you burn things – and then our Quickfire gets underway.  This week’s Quickfire seems appropriate to these coronavirus times when All-Purpose flour seems to be sold out everywhere… the contestants have to showcase a flour that’s not AP. There’s no immunity this week, but the winner will get $5,000 – “that’s a lot of dough” Padma says – nobody laughs.  Malarkey finally succeeds in making ice cream, **Steph** is worried her blue corn gnocchi will “explode into a pile of blue poop,” but ultimately it’s **Gregory** that wins with Quickfire with his tapioca flour pancake.  
+
+Next up we find out about the elimination challenge – it will be celebrating the 100th anniversary of the LA philharmonic (LA existed 100 years ago?), and will require the chefs to work in pairs to “find harmony” between two of the five tastes – sweet/salty/sour/bitter/umami.  The chefs draw knives and pair up.  Nini and **Karen** immediately jump for each other, everyone else pairs off, and **Lee Anne** and Malarkey are left… uh oh. After a quick visit to the “iconic Disney concert hall” (wonder if it leaks as much as Gehry’s other buildings”) we cut to the teams riding across town to Whole Foods, everyone excitedly discussing their plans for the food, except Lee Anne and Malarkey – they sit in awkward silence.  
+
+Once at Whole Foods Lee Anne immediately reveals herself as the villain of the episode – she asks a Whole Foods worker where the ahnn-deve is.  He corrects her pronunciation – En-DIVE? he says – over there.  Lee Anne proceeds to continue calling in ahnn-deve, much to my annoyance.  Groceries in hand, the teams head over to Otium to get cooking.  
+
+*Side note*: did anyone else get a commercial for dry shampoo at this point on bravo.com which touted the benefits of dry shampoo in a water shortage?  Guess we’re at the profiteering stage of the climate crisis.  
+
+The chefs cook – Lee Anne and Malarkey continue to argue.  Everyone’s food seem good, but some highlight their two tastes better than other. Fast forward to judges table – in a surprise twist the team that hates each other – Lee Anne and Malarkey are in the top two, while the dynamic duo that jumped for each other – Karen and Nini - are eliminated.  They appear defeated and want nothing more than to go home for a nap – but no, Tom says, the fun has just begun, their chance at Last Chance Kitchen starts now! Duh duh duh. 
+
+After about 10 confessionals where she's just repeating "I am so tired", Karen edges out Nini in Last Chance Kitchen and returns to the show. 
+
+
+```{r, Week 6 Summary}
+#### update these
+eliminated <- c(eliminated, "Nini Nguyen")
+QFwinner <- c("Gregory Gourdet")
+QFHM <- c("Nini Nguyen", "Melissa King")
+EMwinner <- c("Melissa King", "Kevin Gillespie")
+EMHM <- c("Lee Anne Wong", "Brian Malarkey")
+week <- 6
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Quickfire
+
+**Winner:** Gregory!
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(gregory), dpi = headshotsize)`
+
+**Honorable Mentions:** Nini and Melissa
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(melissa, nini), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/3E2TqNq.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/GOnYgjX.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/QJs8W3S.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Melissa and Kevin
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa, kevin), dpi = headshotsize)`
+
+**Honorable Mentions:** Lee Anne and Malarkey
+
+[`r ji("chef")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(lee_anne, brian), dpi = headshotsize)`
+
+**Eliminated:** Nini
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(nini), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/JNJSw74.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/ifUL9kF.png", dishsize)
+```
+
+
+**Losing Dish**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/gMscsJG.png", dishsize)
+```
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 6 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 6 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 6 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week `r week`.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
+
+# Week 7 Recap
+
+(courtesy of Janet)
+
+This was the Shark Tank mash-up episode where the cheftestants had to pitch restaurant concepts. Some notable points: **Steph** wins a taco quickfire guest judged by Danny Trejo and gains immunity. She leans into this hard, sitting around the house pondering, "what is a moodboard?" while the rest of her competitors furiously gluestick paper cutouts to posters as if they were eighth-graders and not world-class professional chefs. She leans into this so hard that the Elimination Challenge guest judges (Stephanie Izard and some VC dude they probably got because they couldn't actually get one of the Shark Tank people) joke that she should have just called her no-concept restaurant "Immunity". **Bryan Voltaggio**, the fancy dad who managed to cut batonnets out of avocados in the quickfire challenge with only a machete, pitched an "everyday" and "casual" restaurant that would serve shellfish for about 50-65 bucks per meal. **Malarkey** successfully trolled the judges by proposing a Shrek-themed restaurant designed to "entice the Millennials". 
+
+But alas, the most notable event was definitely **Eric** going home for his Trans-Atlantic Slave Trade inspired concept (again! That's what he went home for in his original season), losing to **Kevin's** Southern "spice trade inspired" restaurant and **Gregory's** "elevated" Haitian menu. So... the judges decided that the rumination on slavery and diaspora was too "muddled" of a concept but the celebration of cuisines that slavery enabled are clear and palatable. I mean, you cannot make this sh*t up!
+
+To be fair, Eric's food did not great. Poor guy got in his head. His departure leaves Voltaggio and Kevin fighting for Top Wife Guy.
+
+
+```{r, Week 7 Summary}
+#### update these
+eliminated <- c(eliminated, "Eric Adjepong")
+QFwinner <- c("Stephanie Cmar")
+QFHM <- c("Lee Anne Wong", "Karen Akunowicz")
+EMwinner <- c("Gregory Gourdet", "Kevin Gillespie")
+EMHM <- c("Melissa King", "Brian Malarkey")
+week <- 7
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Quickfire
+
+**Winner:** Stephanie
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(stephanie), dpi = headshotsize)`
+
+**Honorable Mentions:** Lee Anne and Karen
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(lee_anne, karen), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/yLAX7Kj.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/WK5H2DM.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/o1FWi0H.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Gregory and Kevin
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(gregory, kevin), dpi = headshotsize)`
+
+**Honorable Mentions:** Malarkey and Melissa
+
+[`r ji("chef")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(brian, melissa), dpi = headshotsize)`
+
+**Eliminated:** Eric
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(eric), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/HbKS9vR.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/grViuTD.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/r3hlxhz.png", dishsize)
+```
+
+
+**Losing Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/qeytHrf.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/1m7CIvF.png", dishsize)
+```
+
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 7 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 7 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 7 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week `r week`.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
+
+# Week 8 Recap
+
+(courtesy of Janet)
+
+Restaurant Wars:
+
++1 [Successful slave rebellion](https://en.wikipedia.org/wiki/Haitian_Revolution)
+
+-1 ["Plantation South"](https://en.wikipedia.org/wiki/Plantation_complexes_in_the_Southern_United_States#Slavery)
+
+Kevin, the captain of Country Captain, goes down with his ship. (This makes Bryan Voltaggio Top Wife Guy by default)
+
+```{r, Week 8 Summary}
+#### update these
+eliminated <- c(eliminated, "Kevin Gillespie")
+#QFwinner 
+#QFHM 
+EMwinner <- c("Gregory Gourdet", "Brian Malarkey", "Stephanie Cmar", "Lee Anne Wong")
+#EMHM <- c("Melissa King", "Brian Malarkey")
+week <- 8
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Restaurant Wars
+
+**Winner:** Kann (Gregory, Malarkey, Lee Anne, and Stephanie)
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(gregory, brian, lee_anne, stephanie), dpi = headshotsize)`
+
+**Eliminated:** Kevin
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(kevin), dpi = headshotsize)`
+
+**De Facto Top Wife Guy:** Bryan Voltaggio
+
+[`r ji("bowing")`]{.emoji}
+
+`r include_graphics(c(bryan), dpi = headshotsize)`
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 8 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 8 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 8 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week `r week`.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
+# Week 9 Recap
+
+(courtesy of Janet)
+
+The cheftestants go camping. They made beans and brunch for moms. It should come as no surprise that resident Top Wife Guy Bryan Voltaggio won over the moms this win. **Gregory** did well with a fruit salad ("bitches love fruit salad", according to **Karen**), but **Melissa** almost went home for a sad salad (no one likes romaine, according to me). She got to stay because **Lee Anne** accidentally steamed her clafoutis, which sounds like an euphemism for catching an STD, especially when you consider that Lee Anne won the Quickfire involving Bush's beans. 
+
+
+```{r, Week 9 Summary}
+#### update these
+eliminated <- c(eliminated, "Lee Anne Wong")
+QFwinner <- c("Lee Anne Wong")
+QFHM <- c("Gregory Gourdet", "Karen Akunowicz")
+EMwinner <- c("Bryan Voltaggio")
+EMHM <- c("Karen Akunowicz", "Gregory Gourdet")
+week <- 9
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Quickfire
+
+**Winner:** Lee Anne
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(lee_anne), dpi = headshotsize)`
+
+**Honorable Mentions:** Karen and Gregory
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(karen, gregory), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/g4ouHxE.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/wWV0tmn.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/xK5mdd9.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Bryan Voltaggio
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(bryan), dpi = headshotsize)`
+
+**Honorable Mentions:** Karen and Gregory
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(karen, gregory), dpi = headshotsize)`
+
+**Eliminated:** Lee Anne
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(lee_anne), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/hCsxLqV.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/UK9wJuu.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/61iKE7M.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/MGPsqE8.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/DlBviNc.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/CYLPG3m.png", dishsize)
+```
+
+
+**Losing Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/ziwtQTW.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/hmaWwEb.png", dishsize)
+```
+
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week `r week`.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
+# Week 10 Recap
+
+(courtesy of Janet)
+
+Remember a time when the Olympics were happening? Yeah, I don't either. **Stephanie's** winning dessert this week gets her two tickets to the Tokyo Games, which sadly has gone the same way as Trollz World Tour (cancelled). This week's kaiseki Elimination Challenge showed us that none of the cheftestants could pass for Japanese chefs and that Olympic athletes do not really know what Japanese food is supposed to taste like. **Karen** disrespected the duck with some poor knife cuts, so she must go home now. No one plated mountain, river, and valley.
+
+In a scintillating two-part Last Chance Kitchen, Karen went head to head with **Kevin**, the reigning LCK champion. Kevin eked out the win, and then had to go head to head with three of the remaining Cheftestants for a chance to come back to the competition. Kevin beat Malarkey, then lost to Voltaggio. Gregory volunteered as tribute for the last round and lost, which means that Kevin is now back in the running for Top Wife Guy.
+
+
+```{r, Week 10 Summary}
+#### update these
+eliminated <- c(eliminated, "Karen Akunowicz")
+QFwinner <- c("Melissa King")
+QFHM <- c("Brian Malarkey")
+EMwinner <- c("Stephanie Cmar")
+EMHM <- c("Bryan Voltaggio")
+week <- 10
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Quickfire
+
+**Winner:** Melissa
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa), dpi = headshotsize)`
+
+**Honorable Mentions:** Malarkey
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(brian), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/2JIPJ5e.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/3qB0vYt.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Stephanie Cmar
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(stephanie), dpi = headshotsize)`
+
+**Honorable Mentions:** Bryan Volttagio
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(bryan), dpi = headshotsize)`
+
+**Eliminated:** Karen Akunowicz
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(karen), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/ZeQUHiu.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/4Yzswux.png", dishsize)
+```
+
+
+**Losing Dish**
+
+```{r, out.width = dishsize}
+add_image("https://imgur.com/WXcOu8L.png", dishsize)
+```
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week `r week`.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
+
+
+
+
 # References
 
 ### How to Watch!
@@ -1572,8 +2661,8 @@ Thank you to [/@lynnandtonic](https://twitter.com/lynnandtonic "Lynn Fisher") fo
 
 |Name           |Headshot                                              |Status                                   |
 |---------------|:----------------------------------------------------:|:---------------------------------------:|
-Eric Adjepong   |`r include_graphics(c(eric), dpi = headshotsize)`     |[`r ji("chef")`]{.emoji2}                |
-Karen Akunowicz |`r include_graphics(c(karen), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
+Eric Adjepong   |`r include_graphics(c(eric), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}                |
+Karen Akunowicz |`r include_graphics(c(karen), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}                |
 Jennifer Carroll|`r include_graphics(c(jen), dpi = headshotsize)`      |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Stephanie Cmar  |`r include_graphics(c(stephanie), dpi = headshotsize)`|[`r ji("chef")`]{.emoji2}                |
 Lisa Fernandes  |`r include_graphics(c(lisa), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}|
@@ -1582,11 +2671,11 @@ Gregory Gourdet |`r include_graphics(c(gregory), dpi = headshotsize)`  |[`r ji("
 Melissa King    |`r include_graphics(c(melissa), dpi = headshotsize)`  |[`r ji("chef")`]{.emoji2}                |
 Jamie Lynch     |`r include_graphics(c(jamie), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Brian Malarkey  |`r include_graphics(c(brian), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
-Nini Nguyen     |`r include_graphics(c(nini), dpi = headshotsize)`     |[`r ji("chef")`]{.emoji2}                |
+Nini Nguyen     |`r include_graphics(c(nini), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}                |
 Joe Sasto       |`r include_graphics(c(joe), dpi = headshotsize)`      |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Angelo Sosa     |`r include_graphics(c(angelo), dpi = headshotsize)`   |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Bryan Voltaggio |`r include_graphics(c(bryan), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
-Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("chef")`]{.emoji2}                |
+Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("skull_and_crossbones")`]{.emoji2}                |
 
 ### Rules
 
