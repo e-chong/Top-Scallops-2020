@@ -8,6 +8,10 @@ output:
     toc_float: true
     toc_collapsed: false
     theme: cosmo
+knit: (function(inputFile, encoding) {
+  out_dir <- 'test';
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "C:/Users/eugen/OneDrive/Documents/UPenn/Jobs/Portfolio/github/e-chong.github.io/html",
+  ) })
 ---
 
 ```{r setup, include=FALSE}
@@ -62,13 +66,13 @@ contestants <- c("Eric Adjepong",
 preds_long <- read_csv("This Isn't Top Scallops - 2020 - Draft.csv") %>% 
   .[1:15,] %>% 
   dplyr::select(-1) %>% 
-  mutate('Predicted \nFinish' = as.numeric(case_when(.$`Predicted \nFinish` == "1st place" ~ "1",
-                                          .$`Predicted \nFinish` == "Last place" ~ "15",
-                                          TRUE ~ .$`Predicted \nFinish`))) %>% 
-  rename_at(.vars = vars(contains(" \n")),
-            .funs = funs(sub(" \n", " ", .))) %>% 
-  rename_at(.vars = vars(contains("\n")),
-            .funs = funs(sub("\n", " ", .))) %>% 
+  mutate('Predicted /nFinish' = as.numeric(case_when(pull(.[1]) == "1st place" ~ "1",
+                                          pull(.[1]) == "Last place" ~ "15",
+                                          TRUE ~ pull(.[1])))) %>% 
+  rename_at(.vars = vars(contains(" /n")),
+            .funs = funs(sub(" /n", " ", .))) %>% 
+  rename_at(.vars = vars(contains("/n")),
+            .funs = funs(sub("/n", " ", .))) %>% 
   gather(key = "Team",
          value = "Cheftestant",
          2:25) %>% 
@@ -131,7 +135,7 @@ find_weekly_episode_score <- function(){
   
 }
 
-
+ 
 
 add_image <- function(filepath, size){
   image_read(filepath) %>% 
@@ -381,7 +385,7 @@ But it turns out that Ruth Reichl reserved her most cutting remarks for **Angelo
 
 Finishing off the toasts on a more uplifting note: this week's Elimination Challenge winner goes to **Kevin Gillespie** for making a delicious looking little pork ball (guys I know so much about food) topped with "Granny's" apple butter, which Ruth Reichl implored him to bottle and sell. A feel-good win, especially after that heart-tugging backstory about his recent bout with cancer. When Kevin said "I'm here to prove that I'm still alive," I knew he was either going home or winning the challenge. I, like everyone else who ranked him in their top 8, am glad it was the latter. 
 
-\- Janet
+- Janet
 
 ***
 
@@ -430,7 +434,7 @@ add_image("Pics/Highlights/Wk2/Sarah dumps.jpeg", highlightsize)
 add_image("Pics/Highlights/Wk2/Stephen Cream Ale.png", highlightsize)
 ```
 
-**Gracie** made a v tasty Burmese chicken noodle dish called _\*reads notes\*_ pasta carbonara. White sauce strikes again!
+**Gracie** made a v tasty Burmese chicken noodle dish called _/*reads notes/*_ pasta carbonara. White sauce strikes again!
 
 ```{r, out.width = highlightsize, fig.align="center", dpi = 36}
 add_image("Pics/Highlights/Wk2/Gracie Burmese Chicken.png", highlightsize)
@@ -649,7 +653,7 @@ preds_wide %>%
 
 # Week 3 Recap
 
-The chefs kicked off this week with a _fried rice_ challenge guest starring **Ali Wong** and **Randall Park,** who were presumably there to promote their late 2019 Netflix film _Always Be My Maybe_. After being disappointed by almost every Netflix Original I've ever seen, I some time ago instituted a personal rule to never watch a Netflix Original unless it's been recommended to me by at least 10 different people (you may find this stupid, but consider that you spent an evening watching _Birdbox_ and I did not). I broke that rule last fall to watch _Always Be My Maybe_, because Asian-American solidarity, and it was boring, cliche, and saccharine, proving me right once again. It was, however, _our_ boring, cliche, and saccharine movie, and that really meant a lot to _\*gestures to myself and other Asians\*_. The truest sign of cultural representation, in my mind, is not to have _Parasite_ winning a bunch of praise and Oscars, but to have a steady supply of mediocre out there, and between this and _Crazy Rich Asians_, we're getting there, baby!
+The chefs kicked off this week with a _fried rice_ challenge guest starring **Ali Wong** and **Randall Park,** who were presumably there to promote their late 2019 Netflix film _Always Be My Maybe_. After being disappointed by almost every Netflix Original I've ever seen, I some time ago instituted a personal rule to never watch a Netflix Original unless it's been recommended to me by at least 10 different people (you may find this stupid, but consider that you spent an evening watching _Birdbox_ and I did not). I broke that rule last fall to watch _Always Be My Maybe_, because Asian-American solidarity, and it was boring, cliche, and saccharine, proving me right once again. It was, however, _our_ boring, cliche, and saccharine movie, and that really meant a lot to _/*gestures to myself and other Asians/*_. The truest sign of cultural representation, in my mind, is not to have _Parasite_ winning a bunch of praise and Oscars, but to have a steady supply of mediocre out there, and between this and _Crazy Rich Asians_, we're getting there, baby!
 
 Speaking of Asian-American solidarity, not a single Asian chef placed on top in the fried rice Quickfire! Shame level readings ([if you're into that kind of thing](https://en.wikipedia.org/wiki/The_Chrysanthemum_and_the_Sword)) are off the charts right now. Notable dishes include **Eric's** only-sounds-good-because-we-know-it-worked-out PB&J fried rice and **Nini's** ehhh-not-sure-about-that-one watermelon fried rice. Big ups to **Karen** as well for nailing the nasi goreng with Hot Cheetos. She may not have won the Quickfire, but she deserves special praise for performing well despite the, um, weird (read: stupid) [week for her name](https://twitter.com/HadleyFreeman/status/1246812777341169664?s=20 "Karen controversy").
 
@@ -956,7 +960,7 @@ Our favorite reality cooking show brought on famous voice actor **Kelly Clarkson
 ```{r, out.width = "150px", fig.align="right", dpi = 36, out.extra='style="float:right; padding:10px"'}
 add_image("https://vignette.wikia.nocookie.net/homestarfanstuff/images/4/45/StrongSad.png/revision/latest/scale-to-width-down/340?cb=20091010141424", "150px")
 ```
-Cuban person who says "Let me show you the real Mee-Ah-Mee" and introduces the out-of-place-and-initially-resistant-but-ultimately-down-because-it's-Mee-Ah-Mee protagonist to plantains and dancing without the lights on for the first time every night from Monday to Wednesday before he or she needs to go back to looking like **Strong Sad** (inset, right) in the lame not-Mee-Ah-Mee from whence they came, except in my re-imagining of such the repressed protagonist would actually be my 10 closest friends, and I would be the sexy Cuban, and I'd say "Let me show youse the real New Yawk" before taking, again, my 10 closest friends in life, to the midnight premier of _Trolls World Tour_ where we could sink into the movie like a bath, learn once and for all if it's the Trolls taking a tour of our world or if it's us taking a tour of the Trolls' world (voyeuristic in either case), and slam some Old Bay crawfish with Eric and Nini, the former of whom, by way of winning the Quickfire (by definition a minimal effort), won the honor, which he and his plus-one, Nini, failed to appropriately appreciate, and the loss of his, per Corona, they have insufficiently lamented on social media, of attending the premier, whereas I, by dint of being merely an un-famous (if not infamous) lifelong Trolls et al. fan, had to contrive, connive, and sleep my way into earning just one elusive ticket, the barcode for which, for those of you who don't know, I'd tattoo'd _Memento_-style once across my chest out of fear of losing said ticket and then once more in mirror image across my forehead, because I'm not positive how barcodes and mirrors work, but now that Coronavirus has canceled the premier, I see that all my efforts have been for naught, and it is instead I who is **Strong Sad** (inset, upper right), doomed to forever walk the Earth like Atlas bearing the cross that is the _Trolls World Tour_ premier: passed, but never seen.
+Cuban person who says "Let me show you the real Mee-Ah-Mee" and introduces the out-of-place-and-initially-resistant-but-ultimately-down-because-it's-Mee-Ah-Mee protagonist to plantains and dancing without the lights on for the first time every night from Monday to Wednesday before he or she needs to go back to looking like **Strong Sad** (inset, right) in the lame not-Mee-Ah-Mee from whence they came, except in my re-imagining of such the repressed protagonist would actually be my 10 closest friends, and I would be the sexy Cuban, and I'd say "Let me show youse the real New Yawk" before taking, again, my 10 closest friends in life, to the midnight premier of _Trolls World Tour_ where we could sink into the movie like a bath, learn once and for all if it's the Trolls taking a tour of our world or if it's us taking a tour of the Trolls' world (voyeuristic in either case), and slam some Old Bay crawfish with Gregory and Nini, the former of whom, by way of winning the Quickfire (by definition a minimal effort), won the honor, which he and his plus-one, Nini, failed to appropriately appreciate, and the loss of which, per Corona, they have insufficiently lamented on social media, of attending the premier, whereas I, by dint of being merely an un-famous (if not infamous) lifelong Trolls et al. fan, had to contrive, connive, and sleep my way into earning just one elusive ticket, the barcode for which, for those of you who don't know, I'd tattoo'd _Memento_-style once across my chest out of fear of losing said ticket and then once more in mirror image across my forehead, because I'm not positive how barcodes and mirrors work, but now that Coronavirus has canceled the premier, I see that all my efforts have been for naught, and it is instead I who is **Strong Sad** (inset, upper right), doomed to forever walk the Earth like Atlas bearing the cross that is the _Trolls World Tour_ premier: passed, but never seen.
 
 **Stray Observations:**
 
@@ -1249,6 +1253,304 @@ preds_wide %>%
 
 ```
 
+# Week 5 Recap
+
+This week's recap is a guest post from my erstwhile roommate, **Emma Dries**! I actually owe quite a bit to Emma for expanding my culinary education. As an Asian person lacking in certain enzymes - trying to shoehorn something about being Asian every week - cheese had never really registered on my food radar, let alone been a major part of my diet. This changed when I moved in with Emma and we went to Ikea, where she insisted, "Yes, we really do need a box grater that big." As it turns out, white people really do eat that much cheese. Thanks to Emma, now I know.
+
+***
+
+**Quickfire**
+
+
+The quickfire this week is sponsored by Metro PCS, which is honestly a major upgrade from the nightmare of Trollspocalypse (though will we ever get a guest judge as cloyingly uplifting as Kelly Clarkson?). The cheftestants enter the kitchen to a bunch of ringing cellphones. On the other line: mothers, siblings, spouses _(Ed. Note: should the plural of spouse not be "spice"?)_. It would appear as though these chefs have been gone for years, rather than weeks, since everyone has apparently forgotten the sound of their loved ones’ voices (“You don’t recognize your own mother’s voice?” “No,” responds Nini, savagely). In Kevin’s words, “The Top Chef kitchen looks very similar to the streets of Manhattan, a bunch of lunatics running around with headphones in their ears, screaming to someone no one else can see.” Sick burn, Kev! 
+
+```{r, out.width = "300px", fig.align="right", dpi = 36, out.extra='style="float:right; padding:10px"'}
+add_image("Pics/Highlights/Wk5/Nancy.png", "300px")
+```
+
+The producers managed to turn the soul crushing nature of spon into an actually interesting challenge: each of the cheftestant’s family members or friends must describe a dish they have just been served at Nancy Silverton’s flagship restaurant, Mozza _(Ed. Note: see inset, right)_. 
+
+The chef who recreates the dish best — in this case, Kevin, for his execution of a porkchop with braised beans — wins. Bryan Voltaggio comes in last, all thanks to his sister — the heretofore absent from the _Top Chef_ Universe THIRD Voltaggio sibling — Staci, who leads him into misidentifying hamachi as branzino. Staci’s a pastry chef; don’t expect her to know her fish! Much like the third Hemsworth, you can’t help but feel a little bad for Staci, though in this case not for her relative lack of notoriety, but mostly for having to grow up in that competitive clusterfuck of a family. Unfortunately, while Michael Voltaggio (the hotter, douchier brother) has major himbo energy, all data points to him being an obnoxiously good chef. (This digression reminds me that I used the word himbo to describe the male lover in [this poem](https://poets.org/poem/i-being-born-woman-and-distressed-sonnet-xli) while teaching my undergrads today. Love to mold young minds)
+
+Moving on…. 
+
+This episode could be renamed “Battle of the Wife Guys.” Wife guys, ranked: 
+
+1. Kevin “my wife is an incredible communicator” Gillespie. That communication was on clear display with his quickfire win. More than once Kevin also refers to his wife as an “Attorney” rather than a “Lawyer” (is there a difference? This question sent me down a long and ultimately inconclusive internet rabbit hole), making it clear that he knows she’s Hot Shit and wants us to know it, too. 
+
+2. Eric Adjepong ranks a very close second for his vocal appreciation of his wife’s bod (“Janelle walks in with her fine ass”), coupled with his very smooth choice to spend a sliver of his $600 Whole Foods budget on flowers. Looks like Eric’s keyed into his wife’s [love](https://www.5lovelanguages.com/languages/receiving-gifts/) [languages](https://www.5lovelanguages.com/languages/words-of-affirmation/). We are required to stan. 
+
+3. Brian Malarkey unsurprisingly comes in dead last for the lifeless eyes of the woman who seems to be asking herself, every second of this episode, how she ended up in this situation (and by situation, I mean marriage). If we were still in the business of feeling sorry for the wife of a narcissistic psychopath (tbt 2017), we might call these “Melania Eyes.” Malarkey blames his wife for misstep in his dish and calls the experience a “fun marriage counseling session.” At least someone thinks they were having fun. Somehow Brian Malarkey is only the [second most unpleasant man in a fedora](https://findingmyrepublicangoddess.com/) I’ve been cursed with laying eyes on today.  
+
+**Elimination challenge**
+
+While the quickfire began with a very topical/appropriate mode of social distancing between the cheftestants and their loved ones (\*dons tinfoil hat\* what’s the conspiracy here? Did Bravo know?), that is brushed off to the side for the elimination challenge, during which each family member or friend is brought on as sous chef (\*removes tinfoil hat\*). The chefs are tasked with conceptualizing a specialty product. They are then asked to pair said product with a dish to serve at the Century City mall where once, during a summer internship at ICM, a film agent made me leave work first thing in the morning, run across the street to Zara’s semiannual sale, and buy her everything I could find on the rack in her size (00). Why wasn’t there some delicious mapo tofu or pikliz or calamari bolognese for me to sample on that hot, miserable July morning??
+
+Guests are given one ticket to spent on a product to take home and the chef with the most tickets at the end is safe from elimination. Melissa, on a continued excellence streak, sells over 30 bottles of her peach kimchi vinagrette, which I would happily drink by the quart. Nancy Silverton officially comes on as Guest Judge for this challenge (if you haven’t watched her Chef’s Table episode, do it! But not on an empty stomach). Ultimately, Gregory, Nini and Eric end up on top, with Gregory (and his mom!) clinching the challenge win for his Haitian Creole chicken and pikliz. 
+
+Malarkey (poetic justice), Jen, and Stephanie end up on the bottom for a greasy relish, a poorly-textured ginger sauce, and an uninspired chili base, respectively. Jen gets the boot, which bums me out. Jen is the rare example of a Top Chef alum who seems to have grown as both a person and a chef, though I did find her most notorious past moment — eyerolling the judges during a particularly rough judges table in season 6 — kind of iconic. I’ve got my fingers crossed for Jen in LCK, but if she loses that _(Ed. Note: she does, RIP)_, I’m sure we’ll see her again anyway soon. As she says, “hey, I’m from Philly — Rocky keeps coming back,” which I’ll just go out on a limb and say is a reference to the multimillion dollar film franchise. 
+
+**Stray observations:**
+
+* Lemons at whole Foods are 69 cents… nice 
+
+* Lee Anne’s mom gets heat stroke in kitchen and needs to go and rest, but in a very sweet moment of camraderie, everyone else chips in to help her with the rest of prep. Strange parallels to Season 15, where Lee Anne needed to leave the competition early after [getting altitude sickness during one of the season’s most iconic challenges](https://www.foodandwine.com/news/top-chef/season-15/top-chef-colorado-recap-episode-5-this-is-not-glamping). Girl cannot catch a break! 
+
+* Jen Carroll’s sauce, “Sunny Ginger Lemon Love,” sounds like the names of the four children born to antivax influencers living in Calabasas. 
+
+* When listing what’s at their place setting, Jen’s sister responds “one wine glass—“ “I don’t need to know anything about what you’re drinking,” Jen says, interrupting, but I’d just like to state that if I were there, I’d love for her to tell me exactly what she was drinking. 
+
+- Emma
+
+***
+
+**About the Author:** Emma Dries is a writer and food-lover based out of Baltimore. She is best known for the work she has published as the voice behind the [Steak-umm corporate Twitter account](https://twitter.com/steak_umm "@Steak-umm"), which has become famous for serving as an unlikely but essential voice of reason in this era of disinformation and grift. @Steak-umm first reached out to Emma regarding the position after she tweeted a selfie of herself eating a cheesesteak with the caption "puttin' the mommy in umami". Still trying to make "mommy" happen!
+
+```{r, out.width = "125px", fig.align="left", dpi = 36}
+add_image("Pics/Highlights/Wk5/Emma.jpg", "125px")
+```
+
+
+### Highlights From Around the League
+
+**_A bit light on content this week, folks. Send more pics so this doesn't become my personal quarantine photo blog even more than it already is!_**
+
+**Eugene** had a celebrity Twitter encounter this week when [Maangchi](https://twitter.com/maangchi), everyone's internet 엄마 (this means "mommy"), quote-tweeted him. To celebrate, he made Korean garlic chicken, which looked remarkably similar to Panda Express orange chicken.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk5/Maangchi mommy.png", highlightsize)
+add_image("Pics/Highlights/Wk5/Korean garlic chicken.jpg", highlightsize)
+```
+
+**Eugene** has a ["namefellow"](https://english.stackexchange.com/questions/54502/is-there-a-word-for-someone-with-the-same-name) in Houston who's very bad at using the internet. I once received receipts for thousands of dollars of electronics billed to him after someone stole his identity (or so he claimed over the phone). It seems that quarantine has been getting to Houston-Eugene-Chong (or his identity thief), as I've recently started receiving emails from the service below.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk5/Houston Eugene's escorts.png", highlightsize)
+```
+
+**Divya** made a delicious bun! She tells me it is filled with pork, but Kyrie Irving once told me to question everything, so until I see the inside of it, I am skeptical.
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk5/Divya pork bun.png", highlightsize)
+```
+
+Like all Asian men on Twitter, **Eugene** is trying to grow facial hair for the first time. Here's a ~36 day update. Looks like shit!
+
+```{r, out.width = highlightsize, fig.align="center", dpi = 36}
+add_image("Pics/Highlights/Wk5/Eugene face.jpg", highlightsize) 
+```
+
+```{r, Week 5 Summary}
+#### update these
+eliminated <- c(eliminated, "Jennifer Carroll")
+QFwinner <- c("Kevin Gillespie") 
+QFHM <- c("Lee Anne Wong", "Melissa King")
+EMwinner <- c("Gregory Gourdet")
+EMHM <- c("Nini Nguyen", "Eric Adjepong")
+week <- 5
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+### Quickfire
+
+**Winner:** Kevin!
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(kevin), dpi = headshotsize)`
+
+**Honorable Mentions:** Lee Anne and Melissa
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(lee_anne, melissa), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/C0fyrYD.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/lEqGZmO.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/yjzJ8ql.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Gregory!
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(gregory), dpi = headshotsize)`
+
+**Honorable Mentions:** Nini and Eric
+
+[`r ji("chef")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(nini, eric), dpi = headshotsize)`
+
+**Eliminated:** Jen
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(jen), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/3sxBl9t.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/min1rJP.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/CjU4due.png", dishsize)
+```
+
+**Losing Dish**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/0Ku0UT6.png", dishsize)
+```
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 5 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 5 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 5 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after the fifth episode.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+### Team Breakdowns
+
+Lastly, here's a look at how everyone's team is doing after Week `r week`.
+
+```{r}
+preds_wide %>% 
+  mutate_if(is.character,
+            function(x) {
+              cell_spec(x,
+                        format = "html",
+                        color = ifelse(x %in% eliminated, "red", ""),
+                        strikeout = ifelse(x %in% eliminated, TRUE, FALSE))
+            }) %>% 
+  kable(format = "html", escape = FALSE) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                font_size = 12,
+                fixed_thead = TRUE,) %>% 
+  column_spec(1, bold = TRUE, 
+              width = "10em; display: inline-block;") %>% 
+  column_spec(2, border_right = TRUE, width = "20em") %>% 
+  scroll_box(width = "100%",
+             height = "700px")
+
+```
+
 # References
 
 ### How to Watch!
@@ -1271,13 +1573,13 @@ You can find episodes of _Last Chance Kitchen_ on [YouTube](https://www.youtube.
 
 Bios for each chef can be found [here](https://www.bravotv.com/top-chef/about).
 
-Thank you to [\@lynnandtonic](https://twitter.com/lynnandtonic "Lynn Fisher") for the headshots!
+Thank you to [/@lynnandtonic](https://twitter.com/lynnandtonic "Lynn Fisher") for the headshots!
 
 |Name           |Headshot                                              |Status                                   |
 |---------------|:----------------------------------------------------:|:---------------------------------------:|
 Eric Adjepong   |`r include_graphics(c(eric), dpi = headshotsize)`     |[`r ji("chef")`]{.emoji2}                |
 Karen Akunowicz |`r include_graphics(c(karen), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
-Jennifer Carroll|`r include_graphics(c(jen), dpi = headshotsize)`      |[`r ji("chef")`]{.emoji2}                |
+Jennifer Carroll|`r include_graphics(c(jen), dpi = headshotsize)`      |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Stephanie Cmar  |`r include_graphics(c(stephanie), dpi = headshotsize)`|[`r ji("chef")`]{.emoji2}                |
 Lisa Fernandes  |`r include_graphics(c(lisa), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Kevin Gillespie |`r include_graphics(c(kevin), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
@@ -1293,7 +1595,7 @@ Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("
 
 ### Rules
 
-**Scoring:** The goal of the season is to have the highest **Final Score**. 2nd place gets **\$15**, and the winner gets **\$105** (24 total players!).  Your score will have two parts, each weighted equally:
+**Scoring:** The goal of the season is to have the highest **Final Score**. 2nd place gets **/$15**, and the winner gets **/$105** (24 total players!).  Your score will have two parts, each weighted equally:
 
 * **Ranking Score:** This is how closely your predictions match up with the final finishes. If you guess every chef's finish from 1-to-16 correctly, you would have a perfect score.
     - Note that chefs eliminated early in the season may get back onto the show via Last Chance Kitchen! In that case, we will use the chef's final position after the season has ended. 
@@ -1302,11 +1604,11 @@ Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("
 * **Episode Score:** You'll score points for every chef in your **top 8** (MySpace, baby) that ends up on top in the quickfire or elimination challenge.
     - Points Awarded = 
         - Quickfire Winner: 
-        $\scriptsize (10 - ChefRank) * 2$
+        $/scriptsize (10 - ChefRank) * 2$
         - Elimination Challenge Winner: 
-        $\scriptsize (15 - ChefRank) * 2$
+        $/scriptsize (15 - ChefRank) * 2$
         - Quickfire or Elimination Challenge Honorable Mentions: 
-        $\scriptsize 10 - ChefRank$
+        $/scriptsize 10 - ChefRank$
       
    - *Honorable Mentions: being in the Top 3, being on the winning team for team challenges, or getting a special shout out from the judges.
    - Chefs eliminated during an episode can still earn points from winning a quickfire that episode.
@@ -1319,11 +1621,11 @@ At the end, we'll scale everyone's points (see below) for the two scores.  Your 
 
 * **Final Score:**
   - Scaled Final Ranking Score = 
-  $$\scriptsize 1 - \frac{YourRankingScore - min(AllRankingScores)}{max(AllRankingScores) - min(AllRankingScores)}$$
+  $$/scriptsize 1 - /frac{YourRankingScore - min(AllRankingScores)}{max(AllRankingScores) - min(AllRankingScores)}$$
   - Scaled Episode Score = 
-  $$\scriptsize \frac{YourEpisodeScore - min(AllEpisodeScores)}{max(AllEpisodeScores) - min(AllEpisodeScores)}$$
+  $$/scriptsize /frac{YourEpisodeScore - min(AllEpisodeScores)}{max(AllEpisodeScores) - min(AllEpisodeScores)}$$
   - **Final Score** = 
-  $$\scriptsize \frac{Scaled Ranking Score + Scaled Episode Score}{2}$$
+  $$/scriptsize /frac{Scaled Ranking Score + Scaled Episode Score}{2}$$
 
 ### Have You Paid?
 
