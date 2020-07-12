@@ -10,7 +10,7 @@ output:
     theme: cosmo
 knit: (function(inputFile, encoding) {
   out_dir <- 'test';
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = "C:/Users/eugen/OneDrive/Documents/UPenn/Jobs/Portfolio/github/e-chong.github.io/html",
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "C:/Users/echong/Desktop/Misc/e-chong.github.io/html",
   ) })
 ---
 
@@ -1708,7 +1708,7 @@ add_image("https://imgur.com/gMscsJG.png", dishsize)
 
 The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 6 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 6 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 6 Points")) %>% slice(3) %>% pull(Team)`**.
 
-Here are the overall standings in Episode Score after the Week `r week`.
+Here are the overall standings in Episode Score after Week `r week`.
 
 ```{r, fig.height = 6}
 ggplot(weekly_episode_score,
@@ -1938,7 +1938,7 @@ add_image("https://imgur.com/1m7CIvF.png", dishsize)
 
 The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 7 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 7 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 7 Points")) %>% slice(3) %>% pull(Team)`**.
 
-Here are the overall standings in Episode Score after the Week `r week`.
+Here are the overall standings in Episode Score after Week `r week`.
 
 ```{r, fig.height = 6}
 ggplot(weekly_episode_score,
@@ -2113,7 +2113,7 @@ current_rankings %>%
 
 The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 8 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 8 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 8 Points")) %>% slice(3) %>% pull(Team)`**.
 
-Here are the overall standings in Episode Score after the Week `r week`.
+Here are the overall standings in Episode Score after Week `r week`.
 
 ```{r, fig.height = 6}
 ggplot(weekly_episode_score,
@@ -2350,7 +2350,7 @@ add_image("https://imgur.com/hmaWwEb.png", dishsize)
 
 The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 9 Points")) %>% slice(3) %>% pull(Team)`**.
 
-Here are the overall standings in Episode Score after the Week `r week`.
+Here are the overall standings in Episode Score after Week `r week`.
 
 ```{r, fig.height = 6}
 ggplot(weekly_episode_score,
@@ -2564,7 +2564,7 @@ add_image("https://imgur.com/WXcOu8L.png", dishsize)
 
 The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 10 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 10 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 10 Points")) %>% slice(3) %>% pull(Team)`**.
 
-Here are the overall standings in Episode Score after the Week `r week`.
+Here are the overall standings in Episode Score after Week `r week`.
 
 ```{r, fig.height = 6}
 ggplot(weekly_episode_score,
@@ -2632,8 +2632,6 @@ preds_wide %>%
 ```
 
 # Week 11 Recap
-
-[fasdfasd]
 
 
 ```{r, Week 11 Summary}
@@ -2724,11 +2722,11 @@ current_rankings %>%
 **Winning Dishes**
 
 ```{r, out.width = dishsize}
-add_image("https://imgur.com/2JIPJ5e.png", dishsize)
+add_image("https://i.imgur.com/t4U6Jtb.png", dishsize)
 ```
 
 ```{r, out.width = dishsize}
-add_image("https://imgur.com/3qB0vYt.png", dishsize)
+add_image("https://i.imgur.com/AI95mRe.png", dishsize)
 ```
 
 
@@ -2756,25 +2754,25 @@ add_image("https://imgur.com/3qB0vYt.png", dishsize)
 **Winning Dishes**
 
 ```{r, out.width = dishsize}
-add_image("https://imgur.com/ZeQUHiu.png", dishsize)
+add_image("https://i.imgur.com/dSqjSeY.png", dishsize)
 ```
 
 ```{r, out.width = dishsize}
-add_image("https://imgur.com/4Yzswux.png", dishsize)
+add_image("https://i.imgur.com/FE4kg6U.png", dishsize)
 ```
 
 
 **Losing Dish**
 
 ```{r, out.width = dishsize}
-add_image("https://imgur.com/WXcOu8L.png", dishsize)
+add_image("https://i.imgur.com/wns21gl.png", dishsize)
 ```
 
 ### Episode Score
 
 The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 11 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 11 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 11 Points")) %>% slice(3) %>% pull(Team)`**.
 
-Here are the overall standings in Episode Score after the Week `r week`.
+Here are the overall standings in Episode Score after Week `r week`.
 
 ```{r, fig.height = 6}
 ggplot(weekly_episode_score,
@@ -2816,9 +2814,577 @@ ggplot(Final_points_lost,
        subtitle = "A lower number is better!")
 ```
 
+# Week 12 Recap
+
+
+```{r, Week 12 Summary}
+#### update these
+eliminated <- c(eliminated, "Gregory Gourdet")
+QFwinner <- c("Kevin Gillespie")
+QFHM <- c("Melissa King", "Gregory Gourdet")
+EMwinner <- c("Melissa King")
+EMHM <- c("Bryan Voltaggio")
+week <- 12
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Quickfire
+
+**Winner:** Kevin
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(kevin), dpi = headshotsize)`
+
+**Honorable Mentions:** Melissa, Gregory
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(melissa, gregory), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/vvjLGQ1.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/XIw0dns.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/Xhd5359.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Melissa
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa), dpi = headshotsize)`
+
+**Honorable Mentions:** Bryan
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(bryan), dpi = headshotsize)`
+
+**Eliminated:** Gregory
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(gregory), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/2H2fGNs.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/RQlrZ2b.png", dishsize)
+```
+
+
+**Losing Dish**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/9DyAk7s.png", dishsize)
+```
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 12 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 12 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 12 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+# Week 13 Recap
+
+
+
+```{r, Week 13 Summary}
+#### update these
+eliminated <- c(eliminated, "Kevin Gillespie")
+QFwinner <- c("")
+QFHM <- c("")
+EMwinner <- c("Melissa King")
+EMHM <- c("Stephanie Cmar")
+week <- 13
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Current Standings
+
+After `r week` weeks, here are the current standings. This counts everyone's earned Episode Scores and projects Ranking Scores based on who's been eliminated.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Elimination Challenge
+
+**Winner:** Melissa
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa), dpi = headshotsize)`
+
+**Eliminated:** Stephanie and Bryan
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(stephanie, bryan), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/fE8LDQQ.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/CvUKeGg.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/yFTdvBt.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/IEa2pQJ.png", dishsize)
+```
+
+
+**Losing Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/YaUexOI.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/bLWXw5H.png", dishsize)
+```
+
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 13 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 13 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 13 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score after Week `r week`.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+We won't know the final Ranking Scores until the season is over, but we can get a sense of how people are doing based on where they ranked contestants that have already been eliminated (notwithstanding possible Last Chance Kitchen comebacks).
+
+Here's where things stand currently.
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
+# Finale Recap
+
+
+
+```{r, Finale Summary}
+#### update these
+eliminated <- c(eliminated, "Bryan Voltaggio", "Stephanie Cmar")
+QFwinner <- c("")
+QFHM <- c("")
+EMwinner <- c("Melissa King")
+EMHM <- c("Stephanie Cmar")
+week <- 14
+####
+
+
+week_point_title <- paste("Week", week, "Points") 
+week_winners <- list(QFwinner = QFwinner, 
+                     QFHM = QFHM, 
+                     EMwinner = EMwinner, 
+                     EMHM = EMHM)
+
+weekly_episode_score <- left_join(weekly_episode_score %>% 
+                                    dplyr::select(-"Total Episode Points"),
+                                  find_weekly_episode_score(),
+                                  by = c("Team", "Members")) %>% 
+  mutate("Total Episode Points" = rowSums(.[grep("Points", names(.))], na.rm = TRUE)) %>% 
+  arrange(desc(`Total Episode Points`)) 
+
+Final_points_lost <- preds_long %>% 
+  mutate("Final Ranking Points Lost" = ifelse(Cheftestant %in% eliminated,
+                                              abs(16 - match(Cheftestant, eliminated) - `Predicted Finish`),
+                                              0)) %>% 
+  group_by(Team, Members) %>% 
+  dplyr::summarise("Final Ranking Points Lost"= sum(`Final Ranking Points Lost`)) %>%
+  ungroup() %>% 
+  arrange(`Final Ranking Points Lost`)
+
+current_rankings <- left_join(weekly_episode_score %>% 
+                                dplyr::select(Team, Members, `Total Episode Points`),
+                              Final_points_lost,
+                              by = c("Team", "Members")) %>% 
+  mutate("Scaled Episode Points" = ((`Total Episode Points` - min(`Total Episode Points`)) / 
+           (max(`Total Episode Points`) - min(`Total Episode Points`))) %>% round(2),
+         "Scaled Final Ranking Points" = 1 - ((`Final Ranking Points Lost` - min(`Final Ranking Points Lost`)) /
+                                                 (max(`Final Ranking Points Lost`) - min(`Final Ranking Points Lost`))) %>% round(2),
+         "Projected Final Score" = ((`Scaled Episode Points` + `Scaled Final Ranking Points`) / 2) %>% round(2)) %>% 
+  arrange(desc(`Projected Final Score`)) %>% 
+  mutate("Current Standing" = row_number()) %>% 
+  dplyr::select(`Current Standing`, Team, Members, `Projected Final Score`, everything())
+current_rankings$`Current Standing` <- sapply(current_rankings$`Current Standing`, toOrdinal::toOrdinal)
+```
+
+### Final Standings
+
+After `r week` weeks of This Isn't Top Scallops, here are the final standings. This counts everyone's earned Episode Scores and Ranking Scores.
+
+```{r}
+current_rankings %>%
+  kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"),
+                fixed_thead = TRUE,
+                font_size = 12,
+                position = "left",
+                full_width = TRUE) %>%
+  column_spec(1:4,
+              bold = TRUE,
+              color = "black",
+              background = "lightgray",
+              width = "20em") %>%
+  column_spec(4,
+              border_right = TRUE) %>%
+  scroll_box(height = "700px")
+```
+
+
+### Quickfire
+
+**Winner:** Melissa
+
+[`r ji("fire")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa), dpi = headshotsize)`
+
+**Honorable Mentions:** Kevin
+
+[`r ji("fire")`]{.emoji} [`r ji("2nd_place_medal")`]{.emoji}
+
+`r include_graphics(c(kevin), dpi = headshotsize)`
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/t4U6Jtb.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/AI95mRe.png", dishsize)
+```
+
+
+### Elimination Challenge
+
+**Winner:** Melissa
+
+[`r ji("chef")`]{.emoji} [`r ji("trophy")`]{.emoji}
+
+`r include_graphics(c(melissa), dpi = headshotsize)`
+
+**Eliminated:** Stephanie and Bryan
+
+[`r ji("skull_and_crossbones")`]{.emoji}
+
+`r include_graphics(c(stephanie, bryan), dpi = headshotsize)`
+
+
+**Winning Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/kuhzOWd.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/KFv5h18.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/n37xdyM.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/fIH2Asz.png", dishsize)
+```
+
+
+**Losing Dishes**
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/EfpSLok.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/01lqvDa.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/xEHbm2b.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/GEX1rBA.png", dishsize)
+```
+
+
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/icel1r7.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/kI6braO.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/o7cNhQq.png", dishsize)
+```
+
+```{r, out.width = dishsize}
+add_image("https://i.imgur.com/OQwW23p.png", dishsize)
+```
+
+
+### Episode Score
+
+The top 3 scorers in points for this episode are **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 14 Points")) %>% slice(1) %>% pull(Team)`**, **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 14 Points")) %>% slice(2) %>% pull(Team)`**, and **`r arrange(weekly_episode_score, desc(weekly_episode_score$"Week 14 Points")) %>% slice(3) %>% pull(Team)`**.
+
+Here are the overall standings in Episode Score at the end of the season.
+
+```{r, fig.height = 6}
+ggplot(weekly_episode_score,
+       aes(x = reorder(Team, weekly_episode_score$"Total Episode Points"),
+           y = weekly_episode_score$`Total Episode Points`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Episode Points",
+       title = paste("Overall Episode Score Standings After Week", week),
+       subtitle = "A higher score is better!")
+```
+
+### Ranking Score
+
+Final ranking scores!
+
+```{r, fig.height = 6}
+ggplot(Final_points_lost,
+       aes(x = reorder(Team, -Final_points_lost$"Final Ranking Points Lost"),
+           y = Final_points_lost$`Final Ranking Points Lost`)) +
+  geom_bar(stat = "identity",
+           position = "dodge",
+           aes(fill = Team)) +
+  scale_fill_discrete(guide = FALSE) +
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  coord_flip() +
+  theme_bw() +
+  labs(x = "Team",
+       y = "Total Points",
+       title = paste("Total Final Ranking Points Lost as of Week", week),
+       subtitle = "A lower number is better!")
+```
+
 ### Team Breakdowns
 
-Lastly, here's a look at how everyone's team is doing after Week `r week`.
+Here's a last look at everyone's team.
 
 ```{r}
 preds_wide %>% 
