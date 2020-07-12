@@ -3433,25 +3433,25 @@ You can find episodes of _Last Chance Kitchen_ on [YouTube](https://www.youtube.
 
 Bios for each chef can be found [here](https://www.bravotv.com/top-chef/about).
 
-Thank you to [/@lynnandtonic](https://twitter.com/lynnandtonic "Lynn Fisher") for the headshots!
+Thank you to [\@lynnandtonic](https://twitter.com/lynnandtonic "Lynn Fisher") for the headshots!
 
 |Name           |Headshot                                              |Status                                   |
 |---------------|:----------------------------------------------------:|:---------------------------------------:|
-Eric Adjepong   |`r include_graphics(c(eric), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}                |
-Karen Akunowicz |`r include_graphics(c(karen), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}                |
+Eric Adjepong   |`r include_graphics(c(eric), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}|
+Karen Akunowicz |`r include_graphics(c(karen), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Jennifer Carroll|`r include_graphics(c(jen), dpi = headshotsize)`      |[`r ji("skull_and_crossbones")`]{.emoji2}|
-Stephanie Cmar  |`r include_graphics(c(stephanie), dpi = headshotsize)`|[`r ji("chef")`]{.emoji2}                |
+Stephanie Cmar  |`r include_graphics(c(stephanie), dpi = headshotsize)`|[`r ji("skull_and_crossbones")`]{.emoji2}|
 Lisa Fernandes  |`r include_graphics(c(lisa), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}|
-Kevin Gillespie |`r include_graphics(c(kevin), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
-Gregory Gourdet |`r include_graphics(c(gregory), dpi = headshotsize)`  |[`r ji("chef")`]{.emoji2}                |
+Kevin Gillespie |`r include_graphics(c(kevin), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
+Gregory Gourdet |`r include_graphics(c(gregory), dpi = headshotsize)`  |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Melissa King    |`r include_graphics(c(melissa), dpi = headshotsize)`  |[`r ji("chef")`]{.emoji2}                |
 Jamie Lynch     |`r include_graphics(c(jamie), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
-Brian Malarkey  |`r include_graphics(c(brian), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
-Nini Nguyen     |`r include_graphics(c(nini), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}                |
+Brian Malarkey  |`r include_graphics(c(brian), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
+Nini Nguyen     |`r include_graphics(c(nini), dpi = headshotsize)`     |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Joe Sasto       |`r include_graphics(c(joe), dpi = headshotsize)`      |[`r ji("skull_and_crossbones")`]{.emoji2}|
 Angelo Sosa     |`r include_graphics(c(angelo), dpi = headshotsize)`   |[`r ji("skull_and_crossbones")`]{.emoji2}|
-Bryan Voltaggio |`r include_graphics(c(bryan), dpi = headshotsize)`    |[`r ji("chef")`]{.emoji2}                |
-Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("skull_and_crossbones")`]{.emoji2}                |
+Bryan Voltaggio |`r include_graphics(c(bryan), dpi = headshotsize)`    |[`r ji("skull_and_crossbones")`]{.emoji2}|
+Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("skull_and_crossbones")`]{.emoji2}|
 
 ### Rules
 
@@ -3462,13 +3462,13 @@ Lee Anne Wong   |`r include_graphics(c(lee_anne), dpi = headshotsize)` |[`r ji("
     - To clarify, a chef's final position is their position after being eliminated from the _main_ show. That is, it doesn't matter how well a chef does on Last Chance Kitchen unless they make it back onto the main competition.
 
 * **Episode Score:** You'll score points for every chef in your **top 8** (MySpace, baby) that ends up on top in the quickfire or elimination challenge.
-    - Points Awarded = 
+    - Points Awarded =
         - Quickfire Winner: 
-        $/scriptsize (10 - ChefRank) * 2$
+        $\scriptsize (10 - ChefRank) * 2$
         - Elimination Challenge Winner: 
-        $/scriptsize (15 - ChefRank) * 2$
+        $\scriptsize (15 - ChefRank) * 2$
         - Quickfire or Elimination Challenge Honorable Mentions: 
-        $/scriptsize 10 - ChefRank$
+        $\scriptsize 10 - ChefRank$
       
    - *Honorable Mentions: being in the Top 3, being on the winning team for team challenges, or getting a special shout out from the judges.
    - Chefs eliminated during an episode can still earn points from winning a quickfire that episode.
@@ -3481,11 +3481,11 @@ At the end, we'll scale everyone's points (see below) for the two scores.  Your 
 
 * **Final Score:**
   - Scaled Final Ranking Score = 
-  $$/scriptsize 1 - /frac{YourRankingScore - min(AllRankingScores)}{max(AllRankingScores) - min(AllRankingScores)}$$
+  $$\scriptsize 1 - \frac{YourRankingScore - min(AllRankingScores)}{max(AllRankingScores) - min(AllRankingScores)}$$
   - Scaled Episode Score = 
-  $$/scriptsize /frac{YourEpisodeScore - min(AllEpisodeScores)}{max(AllEpisodeScores) - min(AllEpisodeScores)}$$
+  $$\scriptsize \frac{YourEpisodeScore - min(AllEpisodeScores)}{max(AllEpisodeScores) - min(AllEpisodeScores)}$$
   - **Final Score** = 
-  $$/scriptsize /frac{Scaled Ranking Score + Scaled Episode Score}{2}$$
+  $$\scriptsize \frac{Scaled Ranking Score + Scaled Episode Score}{2}$$
 
 ### Have You Paid?
 
